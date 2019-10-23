@@ -21,6 +21,7 @@ public class Game {
         }
     }
     public void update(char input){
+        gameBoard.clear();
         sneak.update(input);
         BodyPart part = sneak;
         while (part.nextBodyPart != null){

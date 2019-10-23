@@ -15,13 +15,8 @@ public class App
         Game game = new Game(3,3,'x','X',3,15,15);
 
         Scanner in = new Scanner(System.in);
-        String input = null;
-        while (input !="q"){
-            try {
-                Runtime.getRuntime().exec("cls");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String input = "";
+        while (!input.equals("q")){
             input = in.next();
             game.update(input.toCharArray()[0]);
         }

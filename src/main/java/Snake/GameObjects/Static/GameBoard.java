@@ -25,4 +25,11 @@ public class GameBoard {
             System.out.println("");
         }
     }
+    public void clear(){
+        for(int i =0;i<XSize;i++){
+            for(int j=0;j<YSize;j++){
+                gameBoard[i][j]=' ';
+            }
+        }
+    }
 }
