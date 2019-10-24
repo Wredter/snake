@@ -4,7 +4,6 @@ import Snake.GameObjects.BodyPart;
 import Snake.GameObjects.Head;
 import Snake.GameObjects.Static.GameBoard;
 
-import java.awt.event.KeyEvent;
 
 public class Game {
     Head sneak;

@@ -1,33 +1,39 @@
 package Snake.GameObjects.Static;
 
-import Snake.GameObjects.Head;
-
 public class GameBoard {
     public char[][] gameBoard;
-    Head sneak;
     int XSize;
     int YSize;
+    int sizeWithBorderX;
+    int sizeWithBorderY;
      public GameBoard(int XSize,int YSize){
-        gameBoard = new char[XSize][YSize];
+
         this.XSize=XSize;
         this.YSize=YSize;
-        for(int i =0;i<XSize;i++){
-            for(int j=0;j<YSize;j++){
-                gameBoard[i][j]=' ';
+        sizeWithBorderX = XSize + 2;
+        sizeWithBorderY = YSize + 2;
+         gameBoard = new char[sizeWithBorderX][sizeWithBorderY];
+        for(int i = 0;i < sizeWithBorderX;i++){
+            for(int j = 0; j < sizeWithBorderY;j++){
+                if(!(j!=0 ^ j!=sizeWithBorderY-1) && !(i !=0 ^ i!=sizeWithBorderX-1)) {
+                    gameBoard[i][j] = ' ';
+                }else {
+                    gameBoard[i][j] = '#';
+                }
             }
         }
     }
     public void update(){
-        for(int i =0;i<XSize;i++){
-            for(int j=0;j<YSize;j++){
+        for(int i =0;i<sizeWithBorderX;i++){
+            for(int j=0;j<sizeWithBorderY;j++){
                 System.out.print(gameBoard[i][j]);
             }
             System.out.println("");
         }
     }
     public void clear(){
-        for(int i =0;i<XSize;i++){
-            for(int j=0;j<YSize;j++){
+        for(int i = 1;i < XSize+1;i++){
+            for(int j = 1; j < YSize + 1;j++){
                 gameBoard[i][j]=' ';
             }
         }

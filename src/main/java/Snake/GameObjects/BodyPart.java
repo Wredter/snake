@@ -26,8 +26,8 @@ public class BodyPart {
         if(prevBodyPart!=null){
             prevBodyXPos = bodyXPos;
             prevBodyYPos = bodyYPos;
-            bodyXPos = prevBodyPart.bodyXPos;
-            bodyYPos = prevBodyPart.bodyYPos;
+            bodyXPos = prevBodyPart.prevBodyXPos;
+            bodyYPos = prevBodyPart.prevBodyYPos;
         }if(nextBodyPart!=null){
             nextBodyPart.update();
         }

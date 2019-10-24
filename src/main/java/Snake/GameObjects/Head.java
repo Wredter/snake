@@ -12,12 +12,14 @@ public class Head extends BodyPart {
         }
     }
     public void update(char input) {
+        prevBodyXPos = bodyXPos;
+        prevBodyYPos = bodyYPos;
         switch (input){
             case 'w':
-                bodyXPos +=1;
+                bodyXPos -=1;
                 break;
             case 's':
-                bodyXPos -=1;
+                bodyXPos +=1;
                 break;
             case 'a':
                 bodyYPos -=1;

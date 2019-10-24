@@ -10,8 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-
         Game game = new Game(3,3,'x','X',3,15,15);
 
         Scanner in = new Scanner(System.in);
