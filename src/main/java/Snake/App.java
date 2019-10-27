@@ -2,8 +2,6 @@ package Snake;
 
 import Snake.Logic.Game;
 
-import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class App
@@ -12,7 +10,6 @@ public class App
     {
         //TODO add gameclock, add board loader, add rewards, add board restrictions
         Game game = new Game(3,3,'x','X',3,15,15);
-
         Scanner in = new Scanner(System.in);
         String input = "";
         while (!input.equals("q")){
