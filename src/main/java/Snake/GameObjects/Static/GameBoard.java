@@ -1,13 +1,15 @@
 package Snake.GameObjects.Static;
 
-public class GameBoard {
+import Snake.GameObjects.GameObject;
+
+public class GameBoard extends GameObject {
     public char[][] gameBoard;
     int XSize;
     int YSize;
     int sizeWithBorderX;
     int sizeWithBorderY;
      public GameBoard(int XSize,int YSize){
-
+         super(0,0);
         this.XSize=XSize;
         this.YSize=YSize;
         sizeWithBorderX = XSize + 2;

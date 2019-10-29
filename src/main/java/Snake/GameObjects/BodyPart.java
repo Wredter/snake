@@ -1,8 +1,6 @@
 package Snake.GameObjects;
 
-public class BodyPart {
-    public int bodyXPos;
-    public int bodyYPos;
+public class BodyPart extends GameObject{
     int prevBodyXPos;
     int prevBodyYPos;
     public BodyPart nextBodyPart = null;
@@ -10,8 +8,7 @@ public class BodyPart {
     public char bodySymbol;
 
     BodyPart(int XPos,int YPos, char bodySymbol){
-        bodyXPos = XPos;
-        bodyYPos = YPos;
+        super(XPos,YPos);
         this.bodySymbol = bodySymbol;
     }
     void addBodyPart(char bodySymbol){
@@ -22,7 +19,7 @@ public class BodyPart {
         nextBodyPart = new BodyPart(locX,locY,bodySymbol);
         nextBodyPart.prevBodyPart = this;
     }
-    void update(){
+    public void update(){
         if(prevBodyPart!=null){
             prevBodyXPos = bodyXPos;
             prevBodyYPos = bodyYPos;
