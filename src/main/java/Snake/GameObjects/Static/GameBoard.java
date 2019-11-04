@@ -1,43 +1,56 @@
 package Snake.GameObjects.Static;
 
 import Snake.GameObjects.GameObject;
+import Snake.GameObjects.Head;
+import Snake.GameObjects.Static.DataTypes.SnakeData;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameBoard extends GameObject {
-    public char[][] gameBoard;
+    //public char[][] gameBoard;
+    public ArrayList<BoardTile> gameBoard;
     int XSize;
     int YSize;
     int sizeWithBorderX;
     int sizeWithBorderY;
      public GameBoard(int XSize,int YSize){
          super(0,0);
+         gameBoard = new ArrayList<>();
         this.XSize=XSize;
         this.YSize=YSize;
         sizeWithBorderX = XSize + 2;
         sizeWithBorderY = YSize + 2;
-         gameBoard = new char[sizeWithBorderX][sizeWithBorderY];
         for(int i = 0;i < sizeWithBorderX;i++){
             for(int j = 0; j < sizeWithBorderY;j++){
                 if(!(j!=0 ^ j!=sizeWithBorderY-1) && !(i !=0 ^ i!=sizeWithBorderX-1)) {
-                    gameBoard[i][j] = ' ';
+                    gameBoard.add(new BoardTile(i,j,true,' '));
                 }else {
-                    gameBoard[i][j] = '#';
+                    gameBoard.add(new BoardTile(i,j,false,'#'));
                 }
             }
         }
     }
-    public void update(){
+    public void draw(){
         for(int i =0;i<sizeWithBorderX;i++){
             for(int j=0;j<sizeWithBorderY;j++){
-                System.out.print(gameBoard[i][j]);
+                System.out.print(gameBoard.get(i*sizeWithBorderX + j*sizeWithBorderY).currentTileSymbol);
             }
             System.out.println("");
         }
     }
-    public void clear(){
-        for(int i = 1;i < XSize+1;i++){
-            for(int j = 1; j < YSize + 1;j++){
-                gameBoard[i][j]=' ';
+    public void update(Head player){
+        List<SnakeData> SnakePos = player.getSnakePosition();
+        for(BoardTile tile: gameBoard) {
+            for (SnakeData data : SnakePos) {
+                if(tile.bodyXPos == data.xBodyPos && tile.bodyYPos == data.yBodyPos){
+                    tile.currentTileSymbol = data.bodySymbol;
+                }else {
+                    tile.currentTileSymbol = tile.defultTileSymbol;
+                }
             }
         }
+        this.draw();
     }
 }

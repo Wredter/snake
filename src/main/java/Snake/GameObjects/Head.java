@@ -1,5 +1,12 @@
 package Snake.GameObjects;
 
+
+import Snake.GameObjects.Static.DataTypes.SnakeData;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Head extends BodyPart {
     public Head(int XPos,int YPos,char bodySymbol,char headSymbol, int initialLenght) {
         super(XPos, YPos, headSymbol);
@@ -29,5 +36,21 @@ public class Head extends BodyPart {
                 break;
         }
         nextBodyPart.update();
+    }
+    public List<SnakeData> getSnakePosition(){
+        List<SnakeData> positions = new ArrayList<>();
+        Integer x;
+        Integer y;
+        char symbol;
+
+        BodyPart part = this;
+        while (part.nextBodyPart != null){
+            x = part.bodyXPos;
+            y = part.bodyXPos;
+            symbol = part.bodySymbol;
+            positions.add(new SnakeData(x,y,symbol));
+        }
+        return positions;
+
     }
 }
