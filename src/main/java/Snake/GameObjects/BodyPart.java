@@ -1,5 +1,4 @@
 package Snake.GameObjects;
-
 import java.util.Objects;
 
 public class BodyPart extends GameObject{

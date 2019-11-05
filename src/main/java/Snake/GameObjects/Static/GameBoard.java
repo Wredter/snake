@@ -3,14 +3,10 @@ package Snake.GameObjects.Static;
 import Snake.GameObjects.GameObject;
 import Snake.GameObjects.Head;
 import Snake.GameObjects.Static.DataTypes.SnakeData;
-import javafx.util.Pair;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GameBoard extends GameObject {
-    //public char[][] gameBoard;
     public ArrayList<BoardTile> gameBoard;
     int XSize;
     int YSize;

@@ -1,9 +1,5 @@
 package Snake.GameObjects;
-
-
 import Snake.GameObjects.Static.DataTypes.SnakeData;
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
