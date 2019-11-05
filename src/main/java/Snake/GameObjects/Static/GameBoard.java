@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameBoard extends GameObject {
-    public ArrayList<BoardTile> gameBoard;
-    public Mouse mouse;
-    int XSize;
-    int YSize;
-    int sizeWithBorderX;
-    int sizeWithBorderY;
+    private ArrayList<BoardTile> gameBoard;
+    private Mouse mouse;
+    private int XSize;
+    private int YSize;
+    private int sizeWithBorderX;
+    private int sizeWithBorderY;
     public boolean gameState = true;
      public GameBoard(int XSize,int YSize){
          super(0,0);
@@ -36,10 +36,10 @@ public class GameBoard extends GameObject {
             for(int j=0;j<sizeWithBorderY;j++){
                 System.out.print(gameBoard.get(i*sizeWithBorderX + j).currentTileSymbol);
             }
-            System.out.println("");
+            System.out.println();
         }
     }
-    public void spawnMouse(Mouse mouse,Head player){
+    public void spawnMouse(Mouse mouse){
          gameBoard.get(mouse.bodyXPos*sizeWithBorderX + mouse.bodyYPos).currentTileSymbol = mouse.bodySymbol;
          this.mouse = mouse;
     }
@@ -68,10 +68,9 @@ public class GameBoard extends GameObject {
                 }
             }
         }
-        if (player.isOnTheSamePositionAs(mouse)){
+        if (player.isOnTheSamePositionAs(mouse)) {
             player.mouseWasEaten();
-            spawnMouse(new Mouse(XSize,YSize,player),player);
+            spawnMouse(new Mouse(XSize, YSize, player));
         }
-
     }
 }

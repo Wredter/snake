@@ -43,8 +43,8 @@ public class Head extends BodyPart {
     }
     public List<SnakeData> getSnakePosition(){
         List<SnakeData> positions = new ArrayList<>();
-        Integer x;
-        Integer y;
+        int x;
+        int y;
         char symbol;
 
         BodyPart part = this;

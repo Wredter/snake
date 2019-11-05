@@ -4,17 +4,17 @@ import java.util.Objects;
 public class BodyPart extends GameObject{
     int prevBodyXPos;
     int prevBodyYPos;
-    public BodyPart nextBodyPart = null;
-    public BodyPart prevBodyPart = null;
-    public char bodySymbol;
-    public boolean doIhaveToSpawnBodyPart;
+    BodyPart nextBodyPart = null;
+    private BodyPart prevBodyPart = null;
+    char bodySymbol;
+    boolean doIhaveToSpawnBodyPart;
 
     BodyPart(int XPos,int YPos, char bodySymbol){
         super(XPos,YPos);
         this.bodySymbol = bodySymbol;
         doIhaveToSpawnBodyPart = false;
     }
-    void addBodyPart(char bodySymbol){
+    private void addBodyPart(char bodySymbol){
         nextBodyPart = new BodyPart(prevBodyXPos,prevBodyYPos,bodySymbol);
         nextBodyPart.prevBodyPart = this;
     }

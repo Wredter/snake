@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Mouse extends GameObject {
 
-    public char bodySymbol;
+    char bodySymbol;
     public Mouse(int boardSizeX, int boardSizeY, Head player){
         super(0,0);
         Random rng = new Random();
@@ -27,13 +27,7 @@ public class Mouse extends GameObject {
             }
         }while (doIHaveToRoleAgain);
     }
-    public void update(BodyPart player) {
-        if(player.bodyXPos == bodyXPos && player.bodyYPos == bodyYPos){
-
-        }
-    }
     private SnakeData toSnakeData(){
-        SnakeData s = new SnakeData(bodyXPos,bodyYPos,bodySymbol);
-        return s;
+        return new SnakeData(bodyXPos,bodyYPos,bodySymbol);
     }
 }

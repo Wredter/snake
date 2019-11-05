@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 
 public class Game {
-    Head sneak;
-    GameBoard gameBoard;
-    ArrayList<GameObject> everyObject;
-    Mouse mysz;
+    private Head sneak;
+    private GameBoard gameBoard;
+    private ArrayList<GameObject> everyObject;
+    private Mouse mysz;
     public boolean gameState = true;
 
     public Game(int XPos,int YPos,char bodySymbol,char headSymbol, int initialLenght, int XSize,int YSize){
@@ -24,14 +24,13 @@ public class Game {
         everyObject.add(gameBoard);
         BodyPart part = sneak;
         mysz = new Mouse(XSize,YSize,sneak);
-        gameBoard.spawnMouse(mysz,sneak);
+        gameBoard.spawnMouse(mysz);
     }
     public void update(char input){
         sneak.update(input);
         gameBoard.update(sneak);
         if(!gameBoard.gameState){
             gameState = false;
-            return;
         }
 
     }
