@@ -34,6 +34,13 @@ public class Head extends BodyPart {
         }
         nextBodyPart.update();
     }
+    public void mouseWasEaten(){
+        BodyPart part = this;
+        while (part.nextBodyPart != null){
+            part = part.nextBodyPart;
+        }
+        part.doIhaveToSpawnBodyPart = true;
+    }
     public List<SnakeData> getSnakePosition(){
         List<SnakeData> positions = new ArrayList<>();
         Integer x;
@@ -50,6 +57,5 @@ public class Head extends BodyPart {
         }
         while (part != null);
         return positions;
-
     }
 }

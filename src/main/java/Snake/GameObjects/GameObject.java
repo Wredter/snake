@@ -14,4 +14,9 @@ public class GameObject {
     public void update(){
 
     }
+    public boolean isOnTheSamePositionAs(GameObject o){
+        if (this == o) return true;
+        return bodyXPos == o.bodyXPos &&
+                bodyYPos == o.bodyYPos;
+    }
 }

@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        //TODO add gameclock, add board loader, add rewards, add board restrictions
+        //TODO add gameclock, add board loader
         Game game = new Game(3,3,'x','X',3,15,15);
         Scanner in = new Scanner(System.in);
         String input = "";

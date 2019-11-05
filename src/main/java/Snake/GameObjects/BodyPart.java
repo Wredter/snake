@@ -7,10 +7,12 @@ public class BodyPart extends GameObject{
     public BodyPart nextBodyPart = null;
     public BodyPart prevBodyPart = null;
     public char bodySymbol;
+    public boolean doIhaveToSpawnBodyPart;
 
     BodyPart(int XPos,int YPos, char bodySymbol){
         super(XPos,YPos);
         this.bodySymbol = bodySymbol;
+        doIhaveToSpawnBodyPart = false;
     }
     void addBodyPart(char bodySymbol){
         nextBodyPart = new BodyPart(prevBodyXPos,prevBodyYPos,bodySymbol);
@@ -28,20 +30,10 @@ public class BodyPart extends GameObject{
             bodyYPos = prevBodyPart.prevBodyYPos;
         }if(nextBodyPart!=null){
             nextBodyPart.update();
+        }if(doIhaveToSpawnBodyPart){
+            addBodyPart(bodySymbol);
+            doIhaveToSpawnBodyPart = false;
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BodyPart part = (BodyPart) o;
-        return prevBodyXPos == part.prevBodyXPos &&
-                prevBodyYPos == part.prevBodyYPos;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(prevBodyXPos, prevBodyYPos);
-    }
 }

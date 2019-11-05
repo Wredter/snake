@@ -8,6 +8,7 @@ import java.util.List;
 
 public class GameBoard extends GameObject {
     public ArrayList<BoardTile> gameBoard;
+    public Mouse mouse;
     int XSize;
     int YSize;
     int sizeWithBorderX;
@@ -30,13 +31,17 @@ public class GameBoard extends GameObject {
             }
         }
     }
-    public void draw(){
+    private void draw(){
         for(int i =0;i<sizeWithBorderX;i++){
             for(int j=0;j<sizeWithBorderY;j++){
                 System.out.print(gameBoard.get(i*sizeWithBorderX + j).currentTileSymbol);
             }
             System.out.println("");
         }
+    }
+    public void spawnMouse(Mouse mouse,Head player){
+         gameBoard.get(mouse.bodyXPos*sizeWithBorderX + mouse.bodyYPos).currentTileSymbol = mouse.bodySymbol;
+         this.mouse = mouse;
     }
     public void update(Head player){
         List<SnakeData> SnakePos = player.getSnakePosition();
@@ -63,7 +68,10 @@ public class GameBoard extends GameObject {
                 }
             }
         }
-
+        if (player.isOnTheSamePositionAs(mouse)){
+            player.mouseWasEaten();
+            spawnMouse(new Mouse(XSize,YSize,player),player);
+        }
 
     }
 }
