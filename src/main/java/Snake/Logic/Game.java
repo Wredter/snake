@@ -12,6 +12,7 @@ public class Game {
     Head sneak;
     GameBoard gameBoard;
     ArrayList<GameObject> everyObject;
+    public boolean gameState = true;
 
     public Game(int XPos,int YPos,char bodySymbol,char headSymbol, int initialLenght, int XSize,int YSize){
         everyObject = new ArrayList<>();
@@ -25,5 +26,10 @@ public class Game {
     public void update(char input){
         sneak.update(input);
         gameBoard.update(sneak);
+        if(!gameBoard.gameState){
+            gameState = false;
+            return;
+        }
+
     }
 }

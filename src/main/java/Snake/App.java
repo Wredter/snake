@@ -15,6 +15,9 @@ public class App
         while (!input.equals("q")){
             input = in.next();
             game.update(input.toCharArray()[0]);
+            if(!game.gameState){
+                return;
+            }
         }
     }
 }

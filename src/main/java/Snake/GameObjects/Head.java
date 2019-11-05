@@ -16,6 +16,7 @@ public class Head extends BodyPart {
                 part = part.nextBodyPart;
             }
             part.addBodyPartInLocation(XPos+1+i,YPos,bodySymbol);
+            part.canEnter = false;
         }
     }
     public void update(char input) {
@@ -44,12 +45,14 @@ public class Head extends BodyPart {
         char symbol;
 
         BodyPart part = this;
-        while (part.nextBodyPart != null){
+        do{
             x = part.bodyXPos;
-            y = part.bodyXPos;
+            y = part.bodyYPos;
             symbol = part.bodySymbol;
-            positions.add(new SnakeData(x,y,symbol));
+            positions.add(new SnakeData(x,y,symbol,part.prevBodyXPos,part.prevBodyYPos));
+            part = part.nextBodyPart;
         }
+        while (part != null);
         return positions;
 
     }
