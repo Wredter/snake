@@ -1,11 +1,6 @@
 package Snake;
 
 import Snake.Logic.Game;
-
-import java.math.BigInteger;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
